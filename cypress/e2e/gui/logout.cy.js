@@ -1,10 +1,8 @@
-/// <reference types="Cypress" />
+describe('Logout GitLab', function() { 
 
-describe('Logout GitLab', function() {
-    
-beforeEach(function() {
+  beforeEach(function() {
     cy.login()
-    //cy.visit('/')
+    cy.visit('/')
 })
 
 it('Testando Logout', function() {

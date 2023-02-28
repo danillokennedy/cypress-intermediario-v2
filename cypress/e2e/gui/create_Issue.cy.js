@@ -12,17 +12,18 @@ describe('Criação de Issue', function() {
     }
 
     beforeEach(function() {
-        cy.login()
-        cy.gui_createproject(projeto)
+        cy.api_deleteproject()
+        cy.login() 
+        cy.api_createproject(projeto)
+        //cy.gui_createproject(projeto)
     })
 
-    it('Criando uma Issue', function() {
+    it('Sucesso', function() {
 
-
-        cy.url().should('be.equal', `${Cypress.config('baseUrl')}/${Cypress.env('user_name')}/${projeto.name}`)
+        //cy.url().should('be.equal', `${Cypress.config('baseUrl')}/${Cypress.env('user_name')}/${projeto.name}`)
+        //após atualizar o comando criação de projeto para API, a verificação acima não é mais possivel porque o teste não entra mais na URL indicada.
         
         cy.gui_createissue(projeto)
-
 
         cy.contains(projeto.name).should('be.visible')
         cy.contains(projeto.issues.name).should('be.visible')

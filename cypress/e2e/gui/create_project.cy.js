@@ -2,10 +2,11 @@ import {faker} from '@faker-js/faker'
 
 describe('Criação de Projeto', function() {
     beforeEach(function() {
+        cy.api_deleteproject()
         cy.login()
     })
 
-    it('Criaando um Projeto', function() {
+    it('Sucesso', function() {
         //const Texto = "Apenas fazendo um teste e complementando essa caixa de texto."
         const projeto = {
             name: `projeto-${faker.datatype.uuid()}`,
